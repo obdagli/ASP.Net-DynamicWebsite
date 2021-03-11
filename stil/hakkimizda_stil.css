@@ -1,0 +1,9 @@
+﻿#hakkimizda{
+    text-align:center;
+    font-family: "Roboto Condensed", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+}
+#hakkimizda p{padding:6%;color:#171f24}
+#hakkimizda h4{margin-top:15px; font-size :24px; color:#a98c66}

@@ -1,0 +1,143 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="yonetim.master.cs" Inherits="yonetim_yonetim" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>YONETIM</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../stil/reset.css" rel="stylesheet" />
+    <link href="../stil/menustilleri.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Jaldi:400,700' rel='stylesheet' type='text/css' />
+    <link href="../stil/stil.css" rel="stylesheet" />
+    <link href="../stil/aramabutonstil.css" rel="stylesheet" />
+    <link href="../stil/girispanelstil.css" rel="stylesheet" />
+    <link href="../stil/normalize.css" rel="stylesheet" />
+
+
+    <!-- JQUERY & ACCORDION MENU -->
+    <script src="../js/jquery-2.1.4.js"></script>
+    <script src="../js/menu/jquery.cookie.js"></script>
+    <script src="../js/menu/jquery.dcjqaccordion.2.7.min.js"></script>
+    <link href="../stil/menu/dcaccordion.css" rel="stylesheet" />
+    <link href="../stil/menu/skins/black.css" rel="stylesheet" />
+    <link href="../stil/menu/skins/graphite.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(document).ready(function ($) {
+            $('.accordion').dcAccordion({
+                eventType: 'click',
+                autoClose: true,
+                saveState: true,
+                disableLink: true,
+                speed: 'slow'
+
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="ust">
+            <div id="ustbolum">
+                <div class="wrapperust">
+                    <div class="banner">
+                        <img src="../resimler/logodeneme.png" />
+                    </div>
+                    <div class="yonetimBaslik">
+                        <h2>Yönetim Paneli</h2>
+                    </div>
+                    <div class="yonetimKullaniciAlani">
+                        <asp:Label ID="lblkullanici" runat="server" CssClass="kullaniciAdi">Kullanıcı</asp:Label><br />
+                        <br />
+                        <asp:LinkButton ID="lbtnCikis" CssClass="cikisButonu" runat="server" OnClick="lbtnCikis_Click">Çıkış</asp:LinkButton>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="orta-body">
+            <div class="wrapper">
+                <div class="orta-sol yonetim-sol">
+
+                    <div class="black demo-container">
+                        <ul class="accordion">
+                            <li><a href="#">Kategoriler</a>
+                                <ul>
+                                    <li><a href="kategoriEkle.aspx">Kategori Ekle</a></li>
+                                    <li><a href="kategoriler.aspx">Kategori Düzenle/Sil</a></li>
+                                    <li><a href="altKategoriEkle.aspx">Alt Kategori Ekle</a></li>
+                                    <li><a href="altKategoriler.aspx">Alt Kategori Düzenle/Sil</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Ürünler</a>
+                                <ul>
+                                    <li><a href="urunEkle.aspx">Ürün Ekle</a></li>
+                                    <li><a href="urunler.aspx">Ürün Düzenle/Sil</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Haberler</a>
+                                <ul>
+                                    <li><a href="haberEkle.aspx">Haber Ekle</a></li>
+                                    <li><a href="haberler.aspx">Haber Düzenle/Sil</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Üyeler</a>
+                                <ul>
+                                    <li><a href="uyeEkle.aspx">Üye Ekle</a></li>
+                                    <li><a href="uyeler.aspx">Üye Düzenle/Sil</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Dosyalar</a>
+                                <ul>
+                                    <li><a href="dosyaEkle.aspx">Dosya Ekle</a></li>
+                                    <li><a href="dosyalar.aspx">Dosya Düzenle/Sil</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Sponsorlar</a>
+                                <ul>
+                                    <li><a href="sponsorEkle.aspx">Sponsor Ekle</a></li>
+                                    <li><a href="sponsorlar.aspx">Sponsor Düzenle/Sil</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Anasayfa Resim</a>
+                                <ul>
+                                    <li><a href="anasayfaResimEkle.aspx">Resim Ekle</a></li>
+                                    <li><a href="anasayfaResimler.aspx">Resim Düzenle/Sil</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Bilgi</a>
+                                <ul>
+                                    <li><a href="bilgiDuzenle.aspx">Bilgi Düzenle</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="orta-orta yonetim-orta">
+
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolderYonetim" runat="server">
+                    </asp:ContentPlaceHolder>
+
+                </div>
+            </div>
+
+            <div class="clear"></div>
+
+        </div>
+        <div class="footer">
+            <div class="sosyal">
+                <a href="http://www.facebook.com" target="_blank">
+                    <img src="../resimler/icon/facebook.svg" alt="Facebook" /></a>
+                <a href="http://plus.google.com" target="_blank">
+                    <img src="../resimler/icon/googleplus.svg" alt="GooglePlus" /></a>
+                <a href="http://www.twitter.com" target="_blank">
+                    <img src="../resimler/icon/twitter.svg" alt="Twitter" /></a>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

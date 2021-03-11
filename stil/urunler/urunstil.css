@@ -1,0 +1,65 @@
+﻿.ustbilgi {
+    border: 2px solid #a98c66;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+    .ustbilgi img {
+        margin: 3.3%;
+    }
+
+    .ustbilgi p {
+        padding: 3.3%;
+        font-family: "Roboto Condensed", Arial, sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+    }
+.butonsiparis {
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    width: 60px;
+    height: 25px;
+    display: block;
+    line-height: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    background: #080;
+    border: 1px solid #060;
+    padding: 0 5px;
+    overflow: hidden;
+    text-align: center;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+    .butonsiparis:hover {
+        color: #fff;
+        background: #191b1d;
+        border: 1px solid #a98c66;
+    }
+
+.guncellemetarihi{padding-left:65px;}
+.siparisbuton a{text-decoration:none;}
+
+@media screen and (-webkit-min-device-pixel-ratio:0)
+{ 
+   .butonsiparis{
+    margin: 3px;    
+    margin-left:15%;}
+}
+.urundetay{
+    text-align:center;
+    font-family: "Roboto Condensed", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 16px;
+    border:2px solid #191b1d;
+}
+.urundetay p{line-height:20px;padding:6%;color:#171f24;}
+.urundetay h4{margin-top:15px; font-size :3em; color:#a98c66}
+.urunadi a{text-decoration:none;color:black;}
+#slider{max-width:90%;}
+#carousel{max-width:90%;}

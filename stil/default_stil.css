@@ -1,0 +1,70 @@
+﻿#haberslider{height:auto;margin-bottom:3%}
+.clear{clear:both;}
+#haberler{width:546px;}
+.sol-haber{
+           float:left;
+           font-family: "Roboto Condensed", Arial, sans-serif;
+           width:273px;
+           margin-left:1%;
+           text-align:center;
+           border: 2px solid #a98c66;         
+           background-color:rgba(25, 27, 29, 0.90);
+}
+.sol-haber a{text-decoration:none;
+             color:#fff;
+}
+.sol-haber a:hover{transition:ease 0.1s; color:#52cfeb;}
+.sol-haber h3{               
+              background-color:#191b1d;
+              padding-top:5px;
+              padding-bottom:5px;
+              color:#a08869;              
+              font-size:1.4em;
+}
+.sag-haber{
+           margin-left:2px;
+           float:right;
+           font-family: "Roboto Condensed", Arial, sans-serif;
+           width:265px;
+           text-align:center;
+           border: 2px solid #a98c66;         
+           background-color:rgba(25, 27, 29, 0.90);
+}
+.sag-haber a{
+             text-decoration:none;
+             color:#fff;
+}
+.sag-haber a:hover{transition:ease 0.1s; color:#52cfeb;}
+.sag-haber h3{
+               
+              background-color:#191b1d;
+              padding-top:5px;
+              padding-bottom:5px;
+              color:#a08869;              
+              font-size:1.4em;
+}
+.clear{clear:both;}
+.csgo {
+    margin:5px;
+    margin-top:20px;
+    position: relative;
+    width: 100%;
+    height:218px;
+    background-color: #0d1214;
+    background-position: center center;
+    background-repeat: repeat;
+    background-size: cover;
+    border-top: 3px solid #a98c66;
+}
+.csgo h4{
+    padding-left:10px;
+    padding-bottom:10px;
+    padding-top:190px;
+    font-family: "Roboto Condensed", Arial, sans-serif;
+    font-weight: 700;
+    line-height: 1em;
+    margin: 0;
+    color: #fff;
+}
+
+

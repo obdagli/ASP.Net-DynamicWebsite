@@ -1,0 +1,254 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="site.master.cs" Inherits="site" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="stil/reset.css" rel="stylesheet" />
+    <link href="stil/menustilleri.css" rel="stylesheet" />
+    <link href="stil/stil.css" rel="stylesheet" />
+    <link href="stil/aramabutonstil.css" rel="stylesheet" />
+    <link href="stil/girispanelstil.css" rel="stylesheet" />
+    <link href="stil/normalize.css" rel="stylesheet" />
+
+    <!-- SLIDER CSS -->
+    <link rel="stylesheet" href="stil/demo.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="stil/flexslider.css"/>
+    <!-- SLIDER CSS -->
+
+    <!-- JQUERY & ACCORDION MENU -->
+    <script src="js/jquery-2.1.4.js"></script>
+    <script src="js/menu/jquery.cookie.js"></script>
+    <script src="js/menu/jquery.dcjqaccordion.2.7.min.js"></script>
+    <link href="stil/menu/dcaccordion.css" rel="stylesheet" />
+    <link href="stil/menu/skins/black.css" rel="stylesheet" />
+    <link href="stil/menu/skins/graphite.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(document).ready(function ($) {
+            $('.accordion').dcAccordion({
+                eventType: 'click',
+                autoClose: true,
+                saveState: true,
+                disableLink: true,
+                speed: 'slow'
+
+            });
+
+        });
+    </script>
+    <!-- JQUERY & ACCORDION MENUS -->
+
+    <!-- SLIDER JAVA SC -->
+    <script src="js/jquery.flexslider.js"></script>
+
+    <script type="text/javascript">
+
+        (function () {
+
+            // store the slider in a local variable
+            var $window = $(window),
+                flexslider = { vars: {} };
+
+            // tiny helper function to add breakpoints
+            function getGridSize() {
+                return (window.innerWidth < 600) ? 2 :
+                       (window.innerWidth < 900) ? 3 : 4;
+            }
+
+
+            $window.load(function () {
+                $('.flexslider').flexslider({
+                    animation: "slide",
+                    animationSpeed: 400,
+                    animationLoop: false,
+                    itemWidth: 210,
+                    itemMargin: 5,
+                    minItems: getGridSize(), // use function to pull in initial value
+                    maxItems: getGridSize(), // use function to pull in initial value
+                    start: function (slider) {
+                        $('body').removeClass('loading');
+                        flexslider = slider;
+                    }
+                });
+            });
+
+            // check grid size on resize event
+            $window.resize(function () {
+                var gridSize = getGridSize();
+
+                flexslider.vars.minItems = gridSize;
+                flexslider.vars.maxItems = gridSize;
+            });
+        }());
+
+    </script>
+
+    <!-- SLIDER JAVA SC -->
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="ust">
+            <div id="ustbolum">
+                <div class="wrapperust">
+                    <div class="banner">
+                        <a href="Default.aspx"><img src="resimler/logodeneme.png" /></a>
+                    </div>
+                    <div class="ust-slider">
+                        <div class="flexslider">
+                            <ul class="slides">
+                                <asp:Repeater ID="RepeaterSlider" runat="server" DataSourceID="SqlDataSourceSlider" >
+                                    <ItemTemplate>
+                                        <li>
+                                            <a href="<%#Eval("sponsor_hedef") %>"><img src="<%#Eval("sponsor_resim") %>"" /></a>
+                                        </li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                                <asp:SqlDataSource runat="server" ID="SqlDataSourceSlider" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' ProviderName='<%$ ConnectionStrings:ConnectionString.ProviderName %>' SelectCommand="SELECT * FROM [sponsor] WHERE ([sponsor_durum] = ?)">
+                                    <SelectParameters>
+                                        <asp:Parameter DefaultValue="1" Name="slider_durum" Type="String"></asp:Parameter>
+                                    </SelectParameters>
+                                </asp:SqlDataSource>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div id="menubar">
+
+                <div class="wrapperust">
+                    <div id="arama">
+                        <!--<input type="search" placeholder="Search" runat="server" id="tb_ara"/>-->
+                        <asp:TextBox ID="ara" runat="server"></asp:TextBox>
+                        <asp:Button ID="ButtonAra" runat="server" Text="Ara" OnClick="ButtonAra_Click" />
+                    </div>
+                    <section class="color-7">
+                        <nav class="cl-effect-21">
+                            <a href="default.aspx">Anasayfa</a>
+                            <a href="dosyalar.aspx">Dosyalar</a>
+                            <a href="hakkimizda.aspx">Hakkımızda</a>
+                            <a href="iletisim.aspx">İletişim</a>
+                            <a href="sponsor.aspx">Sponsorlar</a>
+                        </nav>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+        <div class="orta-body">
+            <div class="wrapper">
+                <div class="orta-sol">
+
+                    <div class="black demo-container" aria-checked>
+                        <ul class="accordion">
+                            <asp:Repeater ID="RepeaterKategoriler" runat="server" DataSourceID="SqlDataSourceKategoriler" OnItemDataBound="RepeaterKategoriler_ItemDataBound">
+                                <ItemTemplate>
+                                    <li><a href="#"><%#Eval("kategori_adi") %></a>
+                                        <ul>
+                                            <asp:Repeater ID="RepeaterAltKategoriler" runat="server" DataSourceID="SqlDataSourceAltKategori">
+                                                <ItemTemplate>
+                                                    <li><a href="urunler.aspx?altKat=<%#Eval("altkategori_id") %>"><%#Eval("altkategori_ad") %></a></li>
+                                                </ItemTemplate>
+                                            </asp:Repeater>
+                                            <asp:SqlDataSource runat="server" ID="SqlDataSourceAltKategori" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' ProviderName='<%$ ConnectionStrings:ConnectionString.ProviderName %>' SelectCommand="SELECT * FROM [altkategori]"></asp:SqlDataSource>
+
+
+                                        </ul>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                            <asp:SqlDataSource runat="server" ID="SqlDataSourceKategoriler" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' ProviderName='<%$ ConnectionStrings:ConnectionString.ProviderName %>' SelectCommand="SELECT * FROM [kategori] WHERE ([kategori_durum] = ?)">
+                                <SelectParameters>
+                                    <asp:Parameter DefaultValue="1" Name="kategori_durum" Type="String"></asp:Parameter>
+                                </SelectParameters>
+                            </asp:SqlDataSource>
+                        </ul>
+                    </div>
+
+                    <div class="clear"></div>
+                    <p>
+                        <img src="resimler/bilge.png" style="width: 170px; margin-left: 40px; margin-top: 15%; margin-bottom: 5%;" />
+                    </p>
+                </div>
+                <div class="orta-orta">
+                    <asp:ContentPlaceHolder ID="ContentPlaceGovde" runat="server">
+                        <div>
+                        </div>
+                    </asp:ContentPlaceHolder>
+
+                </div>
+                <div class="orta-sag">
+                    <p class="saat">
+                        <script language="javascript" src="http://is.sitekodlari.com/dovizkurlari6.js" id="saat"></script>
+                    </p>
+
+                    <!-- LOGIN PANELİM -->
+                    <div class="form-1">
+                        <asp:Panel ID="PanelHosgeldiniz" runat="server" Visible="false" >
+                            <p class="field">Merhaba, <asp:Label ID="lblAd" CssClass="kullanici" runat="server" Text="Label"></asp:Label></p><br />
+                            <p class="field">Bakiyeniz, <asp:Label ID="lblBakiye" CssClass="kullanici" runat="server" Text="Label"></asp:Label></p><br />
+                            <asp:Button ID="btnCikis" runat="server" Text="Çıkış" CssClass="cikisButonuPanel" OnClick="btnCikis_Click" />
+                            <asp:Button ID="btnSepet" runat="server" Text="Sepete Git" CssClass="cikisButonuPanel" OnClick="btnSepet_Click"/>
+                        </asp:Panel>
+                        <asp:Panel ID="PanelGiris" runat="server">
+                        <p class="field">                            
+                            <asp:TextBox ID="tb_kullaniciadi" runat="server"></asp:TextBox>
+                            <i class="form-uye"></i>                        
+                        </p>
+                        <p class="field">                            
+                            <asp:TextBox ID="tb_sifre" runat="server" TextMode="Password"></asp:TextBox>
+                            <i class="form-sifre"></i>                           
+                        </p>
+                        
+                        <p class="submit">
+                            <asp:Button ID="btn_giris" CssClass="giris" runat="server" Text="Giriş" OnClick="btn_giris_Click" />
+                        </p>
+                       
+                        <span class="uye-kayit" data-modal="modal-7"><a href="kayitol.aspx">Kayıt Ol</a></span><br /><br />
+                        </asp:Panel>
+                        <asp:Label ID="lblDurum" runat="server" Text="Kullanıcı Adı ve/veya Şifre Hatalı!" Visible="false" ForeColor="Red"></asp:Label>
+                        <asp:SqlDataSource ID="SqlDataSourceUyeler" runat="server" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' ProviderName='<%$ ConnectionStrings:ConnectionString.ProviderName %>' SelectCommand="SELECT * FROM [uyeler] WHERE (([uye_ad] = ?) AND ([uye_sifre] = ?))">
+                            <SelectParameters>
+                                <asp:ControlParameter ControlID="tb_kullaniciadi" PropertyName="Text" Name="uye_ad" Type="String"></asp:ControlParameter>
+                                <asp:ControlParameter ControlID="tb_sifre" PropertyName="Text" Name="uye_sifre" Type="String"></asp:ControlParameter>
+                            </SelectParameters>
+                        </asp:SqlDataSource>
+                    </div>
+                    <!-- LOGIN PANELİM BİTİŞ-->
+                    <div class="bilgi-sag">
+
+                        <p>
+                            <a href="#">
+                                <img src="resimler/banka_havale_eft_kartsiz_islem3.png" /></a>
+                        </p>
+                        <p>
+                            <a href="#">
+                                <img src="resimler/mobil_odeme.png" /></a>
+                        </p>
+                        <div class="gorsel-sag">
+                            <p>
+                                <img src="resimler/creed.png" />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                
+            </div>
+            <div class="footer">
+                    <div class="sosyal">
+                        <a href="http://www.facebook.com" target="_blank">
+                            <img src="resimler/icon/facebook.svg" alt="Facebook" /></a>
+                        <a href="http://plus.google.com" target="_blank">
+                            <img src="resimler/icon/googleplus.svg" alt="GooglePlus" /></a>
+                        <a href="http://www.twitter.com" target="_blank">
+                            <img src="resimler/icon/twitter.svg" alt="Twitter" /></a>
+                    </div>
+                </div>
+        </div>
+    </form>
+
+</body>
+</html>

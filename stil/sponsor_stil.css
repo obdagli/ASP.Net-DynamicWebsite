@@ -1,0 +1,36 @@
+﻿body{font-family: "Roboto Condensed", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 16px;}
+.sponsor{
+          height:265px;
+          float:left; width:45%;margin: 0px 15px 20px 10px;
+          border: 1px solid #bbbbbb; cursor:pointer; 
+          border-bottom-left-radius:10px;
+          border-bottom-right-radius:10px;
+}
+.sponsor img{
+    border-color: #1d272d;
+    background-color: #1d272d;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 2%;
+    border: none;}
+.sponsor h4, .sponsor p {
+    text-align:center;
+    padding-top:5%;
+    color: #596570;
+    font-size: 16px;
+    padding-left:2%;
+    color:#fff;
+}
+.sponsor:hover{
+    background-color:#1d272d;    
+    transition-duration:0.6s;
+    border-color:#ffffff;
+}
+.sponsor a{
+    text-decoration:none;
+}

@@ -1,0 +1,97 @@
+﻿body{font-family: "Roboto Condensed", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 16px;
+    
+}
+#ust{width:100%;margin:0 auto; background-color:#171f24;}
+#ustbolum{height:170px;background:#171f24; background: url(../resimler/stripes2.png) 0 0 repeat;}
+#menubar{float: left;
+    clear: both;
+    width: 100%;
+    background: #191b1d;
+    border-top: 2px solid #a98c66;
+    font-family: "Roboto Condensed", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: #6f7f8d;
+}
+.saat{margin-left:40px;}
+.orta-body{height:auto;}
+
+.wrapper{width:1085px; height:auto; margin:0 auto;}
+.wrapperust{width:1065px; height:auto; margin:0 auto;}
+.orta-sol{width:250px; height:auto; float:left;margin-top:5%;}
+.orta-orta{width:563px; height:auto; float:left;margin-top:5%;}
+.orta-sag{width:250px; height:auto; float:left;margin-top:5%;}
+.clear{clear:both;}
+.footer{width:100%; height:100px;}
+.yildiz{background-image:url(../resimler/yildiz.png) !important; background-repeat:no-repeat !important;     background-position: 2% 9px !important; }
+.arama{width:100%;border-radius:5px;margin-bottom:15px;}
+.arama input{padding:5%; border-radius:10px; border:none; font-size:0.9em;}
+.arama:hover{box-shadow: inset 0 0 0 1px #74ad5a;}
+.footer{
+    height:150px;
+    float: left;
+    clear: both;
+    width: 100%;
+    text-align: center;
+    background: #151c21;
+    background-image: url(../resimler/logom.png);
+    background-repeat: no-repeat;
+    background-position: top left;}
+.sosyal{float:right; width:40%; height:100%; text-align:right;}
+.sosyal img{width:60px; margin-right:3%;margin-top:50px;}
+.sosyal img:hover{transition:ease 1s; transform:rotate(360deg);}
+#arama{float:right;margin-top:1%;}
+.gorsel-sag{margin-left:18%;margin-top:2%;}
+.bilgi-sag{margin-left:8%;margin-top:10%;}
+.ust-slider{float:right;margin-top:39px;}
+.uye-kayit a{color:#777; text-decoration:none; padding-left:28px;font-family: 'Lato', Calibri, Arial, sans-serif;font-size:13px;background-image:url(../resimler/uye.png); background-repeat:no-repeat;background-position: 10px 0px;}
+.uye-kayit a:hover{color:#52cfeb}
+.banner{float:left;}
+.banner img{
+    background: transparent;
+    margin-top:10px;
+    margin-left:0;
+    padding: 0;
+    border: none;
+    width: auto;
+    height: 150px;
+    max-width:100%;}
+#saat_div {
+    width: 207px;
+    text-align: center;
+    height: 74px;
+    overflow: hidden;
+    display: block;
+    margin-left: 8%;
+    margin-top: 5px;
+    margin-bottom: 3%;
+}
+#ButtonAra{
+    height:39px;
+    border-radius:30px;
+    cursor:pointer;
+    color: #a98c66;
+    font-weight: 700;
+    text-shadow: none;
+    -webkit-transition: color 0.3s;
+    -moz-transition: color 0.3s;
+    transition: color 0.3s;
+}
+.yonetim-orta{width:713px;}
+.yonetim-sol{margin-bottom:5%;}
+.yonetimBaslik{font-size:5em;text-align:center;color:#fff;text-shadow:0px 5px 10px #222;padding-top:7%;}
+.yonetimKullaniciAlani{font-size:1em;text-align:right;color:#fff}
+.cikisButonu{padding:5px 20px; text-decoration:none; color:black; background-color:#a75265; font-size:1em; border-radius:10px;}
+.cikisButonu { background-color:#cccccc;
+}
+.cikisButonuPanel {
+    width:100%;text-decoration:none;color:black;
+                     background-color:bisque; font-size:1.2em;border-radius:10px;
+}
+.kullaniciAdi{font-size:1.5em;padding-right:1%}
+.kullanici{float:right;color:red;font-size:1.2em}

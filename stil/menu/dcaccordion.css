@@ -1,0 +1,12 @@
+/* Page */
+
+.accordion ul, .accordion li{border:0;outline:none;margin:0;padding:0;}
+ul, ul li{list-style: none;}
+ul.text {margin-bottom: 1em; line-height: 1.5em;}
+.text-center {text-align: center;}
+.demo-container {padding: 2px; float: left; width: 96%;}
+.demo-container h4 {font-size: 14px; margin: 0 0 5px 0;}
+.clear {clear: both;}
+*, *::after, *::before {
+    box-sizing: border-box;
+}
